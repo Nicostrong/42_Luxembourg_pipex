@@ -1,0 +1,88 @@
+Bien sûr ! Voici une brève explication de chaque fonction en C :
+
+open :
+	La fonction open permet d’ouvrir un fichier spécifié par son chemin d’accès 
+	(pathname).
+	Si le fichier n’existe pas et que le drapeau O_CREAT est spécifié, 
+	il peut également créer le fichier. 
+	Elle renvoie un descripteur de fichier, qui est utilisé pour les opérations 
+	ultérieures sur le fichier, telles que la lecture ou l’écriture.
+
+close :
+	La fonction close ferme un descripteur de fichier, ce qui signifie qu’il ne 
+	fait plus référence à aucun fichier et peut être réutilisé. Si le descripteur
+	de fichier est le dernier à faire référence à la description de fichier 
+	ouverte, les ressources associées à cette description sont libérées
+
+read :
+	La fonction read tente de lire jusqu’à count octets à partir du descripteur 
+	de fichier spécifié (fd) dans le tampon (buf). Si le décalage de fichier est
+	à la fin du fichier, aucune donnée n’est lue et la fonction renvoie zéro. 
+	Sinon, elle renvoie le nombre d’octets lus
+
+write :
+	La fonction write écrit jusqu’à count octets du tampon (buf) vers le fichier
+	référencé par le descripteur de fichier (fd). Le décalage de fichier est 
+	incrémenté du nombre d’octets réellement écrits. Si le fichier a été ouvert 
+	avec le drapeau O_APPEND, le décalage est d’abord positionné à la fin du 
+	fichier avant l’écriture
+
+malloc :
+	La fonction malloc alloue dynamiquement un bloc de mémoire de la taille
+	spécifiée et renvoie un pointeur vers ce bloc. Il n’initialise pas la mémoire,
+	laissant les valeurs indéterminées. Utilisez free pour libérer cette mémoire
+	lorsque vous n’en avez plus besoin
+
+free :
+	La fonction free libère la mémoire allouée dynamiquement par malloc ou calloc.
+	Elle indique au système que vous n’utilisez plus ce bloc de mémoire
+
+perror :
+	La fonction perror affiche un message d’erreur correspondant au code d’erreur
+	actuel(stocké dans errno). Elle est souvent utilisée pour afficher des 
+	messages d’erreur explicites lorsqu’une fonction échoue
+
+strerror :
+	La fonction strerror renvoie une chaîne de caractères décrivant l’erreur 
+	associée au code d’erreur donné (stocké dans errno)
+
+access :
+	La fonction access vérifie les droits d’accès au fichier spécifié par le 
+	chemin d’accès (pathname). Elle renvoie 0 si l’accès est autorisé, -1 en cas
+	d’erreur
+
+dup et dup2 :
+	Ces fonctions dupliquent un descripteur de fichier existantdup renvoie un 
+	nouveau descripteur de fichier, tandis que dup2 permet de spécifier 
+	explicitement le descripteur de fichier cible
+
+execve :
+	#include <unistd.h>
+	int execve(const char *path, char *const argv[], char *const envp[]);
+
+
+    path : Chemin d’accès vers le fichier exécutable.
+    argv : Tableau de pointeurs de caractères (arguments passés au programme).
+    envp : Tableau de pointeurs de caractères (variables d’environnement).
+
+	La fonction execve remplace le processus courant par un nouveau processus 
+	exécutant le programme spécifié. Elle est souvent utilisée pour lancer de 
+	nouveaux programmes à partir de votre programme en cours
+
+exit :
+	La fonction exit termine le processus en cours d’exécution et renvoie un code
+	de sortie à l’environnement d’exécution
+
+fork :
+	La fonction fork crée un nouveau processus (appelé processus fils) en 
+	dupliquant le processus appelant (appelé processus parent). Le processus fils
+	hérite de l’état du processus parent
+
+pipe :
+	La fonction pipe crée un tube (canal de communication) entre deux processus.
+	Elle renvoie deux descripteurs de fichier, l’un pour la lecture et l’autre 
+	pour l’écriture
+
+unlink :
+	La fonction unlink supprime le fichier spécifié par son chemin d’accès 
+	(pathname). Le fichier est supprimee.

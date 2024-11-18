@@ -1,0 +1,20 @@
+je suis le fichier de test
+du here_doc
+le limiter
+est "FIN"
+donc je vais tester
+essayons
+FIN 
+fIn
+fiN
+FIn
+fIN
+FiN
+ FIN
+ne marche pas car un espace devant
+FIN 
+ne marche pas car espace derriere
+par contre
+FIN
+c est vraiment la fin
+et ces deux lignes ne seront pas prisent en compte.
