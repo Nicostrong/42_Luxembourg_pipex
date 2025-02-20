@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 13:47:49 by nfordoxc          #+#    #+#              #
-#    Updated: 2024/11/18 12:04:27 by nfordoxc         ###   ########.fr        #
+#    Updated: 2024/12/18 12:40:21 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ SRC				=	ft_charchr.c \
 					ft_strjoin.c \
 					ft_strtrim.c \
 					ft_strremoveset.c \
+					ft_formatsubstr.c \
 					ft_split.c \
 					ft_join_array.c \
 					ft_itoa.c \
@@ -88,7 +89,8 @@ SRC				=	ft_charchr.c \
 					ft_putstrarray.c \
 					ft_putendl_fd.c \
 					ft_putnbr_fd.c \
-					ft_countsection.c
+					ft_countsection.c \
+					ft_copy_array.c
 
 OBJ				=	$(SRC:.c=.o)
 

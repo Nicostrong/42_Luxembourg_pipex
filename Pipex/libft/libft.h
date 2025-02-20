@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:59:21 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/11/08 10:07:21 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/01/27 09:57:31 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,13 @@ char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strremoveset(char const *s1, char *charset);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_formatsubstr(char const *s, int st, size_t l, char c);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 
 char		**ft_strarraycpy(char **array);
+char		**ft_copy_strarray(char **array);
 char		**ft_split(char const *s, char c);
-char		**ft_append_str(char **array, char *str);	// TO TESTED
+char		**ft_append_str(char **array, char *str);
 
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 
@@ -118,7 +120,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 char		**ft_free_array(char **array);
 
 void		ft_bzero(void *s, size_t n);
-void		ft_free(void *ptr);
+void		ft_free(void **ptr);
 
 void		*ft_memset(void *s, int c, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);

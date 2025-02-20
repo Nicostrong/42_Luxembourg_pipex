@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 09:30:45 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/08/22 10:42:48 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/01/27 10:08:12 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@
  * </return>
  *
  */
-
 char	**ft_strarraycpy(char **array)
 {
 	char	**cpy;
 	int		nb_row;
 	int		index;
 
+	if (!array)
+		return (NULL);
 	nb_row = 0;
 	while (array[nb_row++])
 		;
@@ -48,10 +49,7 @@ char	**ft_strarraycpy(char **array)
 	{
 		cpy[index] = ft_strdup(array[index]);
 		if (!cpy[index])
-		{
-			ft_free_array(cpy);
-			return (NULL);
-		}
+			return (ft_free_array(cpy));
 	}
 	cpy[index] = NULL;
 	return (cpy);

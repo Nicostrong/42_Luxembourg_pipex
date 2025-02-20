@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countsection.c                                  :+:      :+:    :+:   */
+/*   ft_copy_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 15:45:19 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/12/19 07:49:15 by nfordoxc         ###   Luxembourg.lu     */
+/*   Created: 2024/06/12 09:30:45 by nfordoxc          #+#    #+#             */
+/*   Updated: 2025/01/27 10:14:17 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,41 @@
  * <cat>str</cat>
  *
  * <summary>
- *	int	ft_countsection(char const *s, char c)
+ *	char	**ft_copy_strarray(char **array)
  * </summary>
  *
  * <description>
- *	ft_countword count all section in a string. eatch section are separated by
- *	the char c.
+ *	ft_copystrarray copy an array of str.
  * </description>
  *
- * <param type="char cont *" name="s">string to evaluate</param>
- * <param type="char" name="c">char of separation of section</param>
+ * <param type="char **" name="array">array to copy</param>
  *
  * <return>
- *	number of section in the string.
+ *	a pointer to new array str.
  * </return>
  *
  */
-int	ft_countsection(char const *s, char const c)
+char	**ft_copy_strarray(char **array)
 {
-	int	section;
-	int	index;
+	char	**cpy;
+	int		nb_row;
+	int		index;
 
-	section = 0;
+	nb_row = 0;
+	while (array[nb_row++])
+		;
+	nb_row++;
+	cpy = (char **)ft_calloc(nb_row, sizeof(char *));
+	if (!cpy)
+		return (NULL);
 	index = 0;
-	while (s[index])
+	while (array[index])
 	{
-		while (s[index] == c)
-			index++;
-		if (s[index] && s[index] != c)
-		{
-			section++;
-			while (s[index] && s[index] != c)
-				index++;
-		}
+		cpy[index] = ft_strdup(array[index]);
+		if (!cpy[index])
+			return (ft_free_array(cpy));
+		index++;
 	}
-	return (section);
+	cpy[index] = NULL;
+	return (cpy);
 }

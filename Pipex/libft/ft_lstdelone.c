@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:01:52 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/17 11:08:38 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/01/27 10:06:50 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@
  * </return>
  *
  */
-
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
 	del(lst->content);
-	free(lst);
+	ft_free((void **)&lst);
 }
