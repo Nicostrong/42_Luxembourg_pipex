@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 08:48:18 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/18 09:49:31 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 13:08:24 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ char	**ft_concat_cmd_path(char **path, char *cmd)
 		path_cmd_array[index] = NULL;
 		joined = ft_strjoin(*path++, "/");
 		path_cmd_array[index] = ft_strjoin(joined, cmd);
-		free(joined);
+		ft_free((void **)&joined);
 		index++;
 	}
 	return (path_cmd_array);

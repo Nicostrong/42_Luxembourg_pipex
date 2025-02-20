@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:45:14 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/18 09:51:44 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 14:05:57 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_exit_here_doc(char **line, int *fd)
 {
-	free(*line);
+	ft_free((void **)line);
 	get_next_line(-1);
 	close(fd[1]);
 	return ;
@@ -62,7 +62,7 @@ void	ft_run_here_doc(t_info **info, int *fd)
 				&& line[len_limiter] == '\n')
 				return (ft_exit_here_doc(&line, fd));
 			write(fd[1], line, ft_strlen(line));
-			free(line);
+			ft_free((void **)&line);
 		}
 		else
 			return (ft_exit_here_doc(&line, fd));

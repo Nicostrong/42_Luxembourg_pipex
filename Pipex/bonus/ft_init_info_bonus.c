@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:00:46 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/18 09:51:52 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 14:05:24 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_info	*ft_init_info(int argc, char **argv)
 {
 	t_info	*info;
 
-	info = (t_info *)malloc(sizeof(t_info));
+	info = (t_info *)ft_calloc(1, sizeof(t_info));
 	if (!info)
 	{
 		ft_putendl_fd("Error: Malloc fail for struct info.", 2);
@@ -50,11 +50,7 @@ t_info	*ft_init_info(int argc, char **argv)
 		info->file_in = NULL;
 	}
 	else
-	{
-		info->here_doc = 0;
-		info->limiter = NULL;
 		info->file_in = ft_strdup(argv[1]);
-	}
 	if (!info->limiter && !info->file_in)
 		ft_free_info(&info, 1);
 	ft_get_all_array(&info, argc, argv);

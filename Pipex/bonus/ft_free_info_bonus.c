@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:02:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/18 09:57:52 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 14:17:51 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,16 @@
  * </return>
  *
  */
-
 int	ft_free_info(t_info **info, int error)
 {
 	if (info != NULL && *info != NULL)
 	{
 		if ((*info)->limiter)
-			free((*info)->limiter);
+			ft_free((void **)&(*info)->limiter);
 		if ((*info)->file_in)
-			free((*info)->file_in);
+			ft_free((void **)&(*info)->file_in);
 		if ((*info)->file_out)
-			free((*info)->file_out);
+			ft_free((void **)&(*info)->file_out);
 		if ((*info)->path_array)
 			free_array(&(*info)->path_array);
 		if ((*info)->cmd_opt_array)
@@ -52,7 +51,7 @@ int	ft_free_info(t_info **info, int error)
 			free_array(&(*info)->cmd_array);
 		if ((*info)->access_path)
 			free_array(&(*info)->access_path);
-		free(*info);
+		ft_free((void **)info);
 		info = NULL;
 	}
 	if (error)
@@ -78,7 +77,6 @@ int	ft_free_info(t_info **info, int error)
  * </return>
  *
  */
-
 void	free_array(char ***array)
 {
 	int	index;
@@ -87,10 +85,6 @@ void	free_array(char ***array)
 		return ;
 	index = -1;
 	while ((*array)[++index])
-	{
-		free((*array)[index]);
-		(*array)[index] = NULL;
-	}
-	free(*array);
-	*array = NULL;
+		ft_free((void **)&(*array)[index]);
+	ft_free((void **)*array);
 }

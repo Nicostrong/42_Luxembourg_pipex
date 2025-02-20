@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 08:48:18 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/18 09:51:54 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 14:04:35 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**ft_get_cmd_opt(int argc, char **argv)
 	else
 		i_arg = 2;
 	i_cmd = 0;
-	cmd_array = (char **)malloc((argc - i_arg) * sizeof(char *));
+	cmd_array = (char **)ft_calloc((argc - i_arg), sizeof(char *));
 	if (!cmd_array)
 		return (NULL);
 	while (i_arg <= argc - 2)
@@ -124,7 +124,7 @@ char	**ft_get_only_cmd(char **cmd_option, int nb_cmd)
 	int		i_row;
 	char	**cmd;
 
-	cmd = (char **)malloc((nb_cmd + 1) * sizeof(char *));
+	cmd = (char **)ft_calloc((nb_cmd + 1), sizeof(char *));
 	if (!cmd)
 		return (NULL);
 	i_array = 0;
@@ -181,7 +181,7 @@ char	**ft_concat_cmd_path(char **path, char *cmd)
 	{
 		joined = ft_strjoin(*path++, "/");
 		path_cmd_array[index] = ft_strjoin(joined, cmd);
-		free(joined);
+		ft_free((void **)&joined);
 		index++;
 	}
 	return (path_cmd_array);

@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:06:57 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/06/17 11:31:53 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 13:09:32 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	print_info(t_info *info)
 	ft_putendl_fd("==========  File OUT :  =================", 1);
 	ft_putendl_fd(info->file_out, 1);
 	ft_putendl_fd("==========  $PATH :  ====================", 1);
-	ft_putstrarray(info->path_array, 1);
+	ft_putstrarray(info->path_array);
 	ft_putendl_fd("==========  cmd & opt array :  =========", 1);
-	ft_putstrarray(info->cmd_opt_array, 1);
+	ft_putstrarray(info->cmd_opt_array);
 	ft_putendl_fd("==========  md array :  ================", 1);
-	ft_putstrarray(info->cmd_array, 1);
+	ft_putstrarray(info->cmd_array);
 	ft_putendl_fd("==========  access path :  ==============", 1);
-	ft_putstrarray(info->access_path, 1);
+	ft_putstrarray(info->access_path);
 }
